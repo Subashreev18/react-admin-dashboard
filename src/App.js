@@ -147,7 +147,7 @@ function App() {
   };
 
   return (
-    <Router basename="/dashboard">
+    <Router>
       <div className="container-fluid p-0">
         <nav
           className="navbar navbar-expand-lg shadow-sm border-bottom d-flex align-items-center justify-content-between"
