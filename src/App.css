@@ -1,0 +1,119 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+/* Sidebar responsive tweaks */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 150px !important;
+  }
+
+  .sidebar .nav-link {
+    font-size: 0.9rem !important;
+    padding: 6px 8px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 120px !important;
+  }
+
+  .sidebar .nav-link {
+    font-size: 0.85rem !important;
+  }
+}
+
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.reset-btn {
+  background-color: rgb(217, 218, 218);
+  color: rgb(48, 45, 45);
+  border: 1px solid #b0b0b0;
+  height: 38px;
+  margin-left: 8px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.reset-btn:hover {
+  background-color: rgb(190, 191, 191);
+  color: black;
+}
+
+
+.hover-bounce {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.hover-bounce:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Sidebar default */
+.sidebar {
+  background-color: #1c2b36;
+  width: 240px;
+  position: fixed;
+  top: 95px;
+  /* navbar height */
+  left: -240px;
+  height: 100vh;
+  transition: left 0.3s ease;
+  z-index: 1050;
+}
+
+/* Sidebar visible */
+.sidebar.show-sidebar {
+  left: 0;
+}
+
+/* Desktop behavior */
+@media (min-width: 768px) {
+  .sidebar {
+    position: static;
+    height: auto;
+    left: 0;
+    width: 16.6667%;
+    /* same as col-md-2 */
+  }
+}
