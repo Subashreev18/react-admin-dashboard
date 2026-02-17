@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -138,7 +138,7 @@ function EnrollmentReport() {
         });
 
 
-        const startDataRow = headerRowIndex + 1;
+
         filteredData.forEach((r) => {
             const row = sheet.addRow([r.id, r.empId, r.name, r.status, r.date]);
 

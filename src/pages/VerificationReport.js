@@ -173,7 +173,7 @@ function EnrollmentReport() {
         });
 
 
-        const startDataRow = headerRowIndex + 1;
+
         filteredData.forEach((r) => {
             const row = sheet.addRow([
                 r.id,
