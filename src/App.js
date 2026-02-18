@@ -339,6 +339,7 @@ function App() {
                             borderRadius: "6px",
                             transition: "0.3s",
                           })}
+                          onClick={() => setShowSidebar(false)}
                         >
                           Failure
                         </NavLink>
