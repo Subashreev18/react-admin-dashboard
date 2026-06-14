@@ -301,10 +301,12 @@ function EnrollmentReport() {
                             </tbody>
                         </table>
                     </div>
-                    {/* Pagination */}
+                    {/* Pagination with ellipses - Centered & Responsive */}
                     {totalPages > 1 && (
-                        <div className="d-flex justify-content-center mt-3">
-                            <div className="d-flex align-items-center me-3">
+                        <div className="d-flex flex-column flex-md-row justify-content-center align-items-center mt-3 gap-2">
+
+                            {/* Rows per page selector */}
+                            <div className="d-flex align-items-center">
                                 <span className="me-2">Rows per page:</span>
                                 <select
                                     className="form-select form-select-sm"
@@ -321,80 +323,55 @@ function EnrollmentReport() {
                                     <option value={100}>100</option>
                                 </select>
                             </div>
+
+                            {/* Page numbers */}
                             <nav>
-                                <ul className="pagination mb-0">
+                                <ul className="pagination pagination-sm mb-0 flex-wrap justify-content-center">
+
                                     {/* Prev button */}
                                     <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
                                         <button
-                                            className="page-link"
-                                            style={{
-                                                borderRadius: "6px",
-                                                margin: "0 3px",
-                                                minWidth: "36px",
-                                                textAlign: "center",
-                                                border: "1px solid #ddd",
-                                                color: "#333",
-                                                padding: "4px 8px",
-                                            }}
-                                            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                                            className="page-link px-2"
+                                            onClick={() =>
+                                                setCurrentPage((prev) => Math.max(prev - 1, 1))
+                                            }
                                         >
                                             &lt;
                                         </button>
                                     </li>
 
-                                    {/* Page numbers */}
+                                    {/* Pages with ellipses */}
                                     {Array.from({ length: totalPages }, (_, i) => i + 1)
                                         .filter((page) => {
                                             return (
                                                 page === 1 ||
                                                 page === totalPages ||
-                                                (page >= currentPage - 1 && page <= currentPage + 1)
+                                                (page >= currentPage - 1 &&
+                                                    page <= currentPage + 1)
                                             );
                                         })
                                         .reduce((acc, page, idx, arr) => {
-                                            if (idx > 0 && page - arr[idx - 1] > 1) {
+                                            if (idx > 0 && page - arr[idx - 1] > 1)
                                                 acc.push("ellipsis");
-                                            }
+
                                             acc.push(page);
                                             return acc;
                                         }, [])
                                         .map((item, idx) =>
                                             item === "ellipsis" ? (
                                                 <li key={idx} className="page-item disabled">
-                                                    <span
-                                                        className="page-link"
-                                                        style={{
-                                                            borderRadius: "6px",
-                                                            margin: "0 3px",
-                                                            minWidth: "36px",
-                                                            textAlign: "center",
-                                                            border: "1px solid #ddd",
-                                                            color: "#333",
-                                                            padding: "4px 8px",
-                                                        }}
-                                                    >
+                                                    <span className="page-link px-2">
                                                         ...
                                                     </span>
                                                 </li>
                                             ) : (
                                                 <li
                                                     key={idx}
-                                                    className={`page-item ${currentPage === item ? "active" : ""}`}
+                                                    className={`page-item ${currentPage === item ? "active" : ""
+                                                        }`}
                                                 >
                                                     <button
-                                                        className="page-link"
-                                                        style={{
-                                                            borderRadius: "6px",
-                                                            margin: "0 3px",
-                                                            minWidth: "36px",
-                                                            textAlign: "center",
-                                                            border: "1px solid #ddd",
-                                                            color:
-                                                                currentPage === item ? "#6c63ff" : "#333",
-                                                            fontWeight: currentPage === item ? "bold" : "normal",
-                                                            backgroundColor: currentPage === item ? "white" : "transparent",
-                                                            padding: "4px 8px",
-                                                        }}
+                                                        className="page-link px-2"
                                                         onClick={() => setCurrentPage(item)}
                                                     >
                                                         {item}
@@ -404,19 +381,17 @@ function EnrollmentReport() {
                                         )}
 
                                     {/* Next button */}
-                                    <li className={`page-item ${currentPage === totalPages ? "disabled" : ""}`}>
+                                    <li
+                                        className={`page-item ${currentPage === totalPages ? "disabled" : ""
+                                            }`}
+                                    >
                                         <button
-                                            className="page-link"
-                                            style={{
-                                                borderRadius: "6px",
-                                                margin: "0 3px",
-                                                minWidth: "36px",
-                                                textAlign: "center",
-                                                border: "1px solid #ddd",
-                                                color: "#333",
-                                                padding: "4px 8px",
-                                            }}
-                                            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                                            className="page-link px-2"
+                                            onClick={() =>
+                                                setCurrentPage((prev) =>
+                                                    Math.min(prev + 1, totalPages)
+                                                )
+                                            }
                                         >
                                             &gt;
                                         </button>
