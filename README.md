@@ -45,13 +45,16 @@ npm start
 ## 📸 Screenshots
 
 ### Home Page
-![Home](./screenshots/home.png)
+![Home](./home.png)
 
-### Verification Report
-![Verification](./screenshots/verification.png)
+### Enrollment Page
+![Enrollment](./enrollment.png)
 
-### Transaction Details
-![Transaction](./screenshots/transaction.png)
+### Verification Page
+![Verification](./verification.png)
+
+### Transaction Page
+![Transaction](./transaction.png)
 
 ---
 
